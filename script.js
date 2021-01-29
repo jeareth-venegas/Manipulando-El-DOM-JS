@@ -23,10 +23,40 @@
  */
 
 // BOILERPLATE
+
+// añado constantes
 const form = document.querySelector("form");
+const input = document.querySelectorAll('.requerido');
+const js = document.querySelector('script');
+const formPadre = form.parentElement;
+const h2 = document.createElement('h2');
+const h3 = document.createElement('h3');
+// mensajes de error y confirmación
+let invalid = '';
+let valid = '';
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-
+  input.forEach(element =>{
+    if(element.value != ''){
+      element.style.border = 'solid 1px green';
+      invalid = '';
+      valid = "Su formulario ha sido enviado con éxito";
+    }else{
+      element.style.border = 'solid 1px red';
+      invalid = 'Error. Llene los espacios con asterisco (*)';
+      valido = '';
+    }
+  });
+  //estructura
+  h2.innerText = valid;
+  h3.innerText = invalid;
+  formPadre.insertBefore(h2, js);
+  h2.style.backgroundColor = "#00be0d88";
+  formuPadre.insertBefore(h3, form);
+  h3.style.backgroundColor = "#ff020257";
   console.log("FORMULARIO ENVIADO");
 });
+
+  console.log("FORMULARIO ENVIADO");
+
